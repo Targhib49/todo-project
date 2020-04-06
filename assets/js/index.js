@@ -74,8 +74,6 @@ let search = event => {
     const filtered = todos.filter(todo =>
         todo.toLowerCase().includes(inputSearch)
     )
-    console.log(filtered);
-    
     if (filtered.length > 0){
         showList(filtered)
     } else alert("Item not found")
