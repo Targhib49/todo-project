@@ -1,15 +1,13 @@
 //Elements
 let addButton = document.getElementById("add")
-let editButton
-let deleteButton
-let searchForm = document.getElementById("")
+let searchButton = document.getElementById("search")
 
 // Storage
 let get = () => {
     if (localStorage.todos) {
-        return JSON.parse(localStorage.todos); // parse from string to object
+        return JSON.parse(localStorage.todos);
     } else {
-        localStorage.todos = "[]"; // set the initial data string if not found
+        localStorage.todos = "[]";
         return [];
     }
 };
@@ -27,12 +25,10 @@ let showList = (list = get()) => {
             screen.innerHTML +=
                 `<li id="todo-${index}" class="todo d-flex justify-content-between align-items-center mt-1">
                 <span>${list[index]}</span> 
-                <span> <i id="edit" class="fa fa-pencil btn-sm btn-info edit-${index}" aria-hidden="true"></i>
-                <i id="del" class="fa fa-trash btn-danger btn-sm ml-2 del-${index}" aria-hidden="true"></i></span></li>`
+                <span> <i id="edit-${index}" class="fa fa-pencil btn-sm btn-info edit" aria-hidden="true" onclick="editButton(this)"></i>
+                <i id="del-${index}" class="fa fa-trash btn-danger btn-sm ml-2 del" aria-hidden="true" onclick="deleteButton(this)"></i></span></li>`
         }
     }
-    editButton = document.getElementById("edit")
-    deleteButton = document.getElementById("del")
 }
 
 //Features
@@ -49,47 +45,45 @@ let add = event => {
     }
 }
 
-/*let edit = event => {
-    if (event.target.matches("#edit")) {
-        let todos = get()
-        const id = event.target.class.replace("todo-", "")
-        const text = prompt(`update ${todos[id]}:`)
+let editButton = temp => {
+    let todos = get()
+    const id = temp.id.replace("edit-", "")
+    const text = prompt(`update ${todos[id]}:`)
 
-        if (text) {
-            todos[id] = text
-            save(todos)
-            showList()
-        } else {
-            alert("text can't be empty")
-        }
+    if (text) {
+        todos[id] = text
+        save(todos)
+        showList()
+    } else {
+        alert("text can't be empty")
     }
-}*/
-
-let del = event => {
-        console.log("in");
-        let todos = get()
-        
-        
-        
-        //todos.splice(id, 1)
-        //save(todos)
-        //showList()
 }
 
-/*let search = event => {
-    const value = event.target.value.toLowerCase()
-    const todos = get()
+let deleteButton = (temp) => {
+    let todos = get()
+    let id = temp.id.replace("del-", "")
+    todos.splice(id, 1)
+    save(todos)
+    showList()
+}
+
+let search = event => {
+    event.preventDefault()
+    let todos = get()
+    let inputSearch = document.getElementById("searchForm").value.toLowerCase()
     const filtered = todos.filter(todo =>
-        todo.text.toLowerCase().includes(value)
+        todo.toLowerCase().includes(inputSearch)
     )
-    showList(filtered)
-}*/
+    console.log(filtered);
+    
+    if (filtered.length > 0){
+        showList(filtered)
+    } else alert("Item not found")
+}
 
 //Initialization
 showList()
 
 //Listeners
 addButton.addEventListener("click", add)
-//editButton.addEventListener("click", edit)
-deleteButton.addEventListener("click", del)
-//searchForm.addEventListener("keyup", search)
+searchButton.addEventListener("click", search)
