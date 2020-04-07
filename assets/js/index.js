@@ -10,6 +10,7 @@ let addButton = document.getElementById("add");
 let searchButton = document.getElementById("search");
 let userDisplay = document.getElementById("userDisplay")
 let logoutButton = document.getElementById('logoutButton')
+let screen = document.getElementById("screen");
 
 // Storage
 let get = () => {
@@ -31,8 +32,7 @@ let showUser = (myObject) => {
 }
 
 let showList = (list = get()) => {
-    let screen = document.getElementById("screen");
-    if (list.length != 0) {
+    if (list) {
         screen.innerHTML = "";
         for (let index = 0; index < list.length; index++) {
             screen.innerHTML += `<li id="index" class="d-flex justify-content-between align-items-center bg-light p-1">
@@ -41,7 +41,7 @@ let showList = (list = get()) => {
             <i id="del-${index}" class="fa fa-trash btn-danger btn-sm" aria-hidden="true" onclick="deleteButton(this)"></i></span></li>`;
         }
     }
-};
+} 
 
 //Features
 let add = (event) => {
@@ -86,9 +86,7 @@ let search = (event) => {
     let filtered = [];
     let inputSearch = document.getElementById("searchForm").value.toLowerCase();
     for (let i=0; i<todos.length;i++){
-        if (inputSearch == todos[i]){
-            console.log();
-            
+        if (inputSearch == todos[i]){          
             filtered.push(inputSearch);
         }
     }
