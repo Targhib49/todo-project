@@ -35,7 +35,7 @@ let showList = (list = get()) => {
     if (list.length != 0) {
         screen.innerHTML = "";
         for (let index = 0; index < list.length; index++) {
-            screen.innerHTML += `<li class="d-flex justify-content-between align-items-center bg-light p-2">
+            screen.innerHTML += `<li id="index" class="d-flex justify-content-between align-items-center bg-light p-1">
             <span>${list[index]}</span>
             <span> <i <i id="edit-${index}" class="fa fa-pencil btn-sm btn-warning" aria-hidden="true" aria-hidden="true" onclick="editButton(this)"></i>
             <i id="del-${index}" class="fa fa-trash btn-danger btn-sm" aria-hidden="true" onclick="deleteButton(this)"></i></span></li>`;

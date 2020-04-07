@@ -4,7 +4,7 @@
 }
 
 ul li.checked {
-    background: rgb(180, 17, 17) !important;
+    background: rgb(212, 76, 76) !important;
     color: rgb(253, 253, 253);
     text-decoration: line-through;
 }
@@ -12,5 +12,5 @@ ul li.checked {
 ul li:hover {
     cursor: pointer;
     color: rgb(253, 253, 253);
-    background: rgb(180, 17, 17) !important;
+    background: rgb(165, 156, 156) !important;
 }
