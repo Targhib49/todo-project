@@ -35,7 +35,7 @@ let loginUser = (event) => {
         alert("Anda berhasil login");
         window.location.href = `${window.origin}/index.html`;
     } else {
-        alert("email atau password salah");
+        alert("email or password you submited did not match our records\nplease check or register and try again");
     }
 };
 
