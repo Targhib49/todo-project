@@ -9,47 +9,85 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/index.css">
     <title>Document</title>
 </head>
 
 <body>
+    <!-- header -->
+    <header>
+        <div class="d-flex justify-content-center">
+            <h1 class="display-3">TODOS</h1>
+        </div>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
+        </ul>
+    </header>
+
     <div class="container mt-5">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <form class="form-inline">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="todo" id="todo" placeholder="Write your todo" />
-                        <button type="submit" id="add" class="btn btn-info mx-3">Add Todo</button>
+        <div class="card">
+            <div class="card-header form-inline bg-primary">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form>
+                                <div class="form-group d-inline">
+                                    <input class="form-control mr-2 mt-1" type="text" name="todo" id="todo"
+                                        placeholder="Write your todo" required />
+                                    <button type="submit" id="add" class="btn btn-light mt-1 rounded-0">Add Todo</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <form class="float-md-right float-sm-leftmt-1>
+                                <div class=" form-group d-inline">
+                                <input class="form-control mr-2 mt-1" type="text" name="todo" id="searchForm"
+                                    placeholder="Search" required />
+                                <button type="submit" id="search" class="btn btn-light mt-1 rounded-0">Search</button>
+                        </div>
+                        </form>
                     </div>
-                </form>
-                <form class="form-inline ml-auto">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="todo" id="searchForm" placeholder="Search" />
-                        <button type="submit" id="search" class="btn btn-info mx-3">Search</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-sm-12">
+                        <ul id="screen" class='list-group'>
+
+                        </ul>
                     </div>
-                </form>
-            </ol>
-        </nav>
-        <div class="container bg-warning p-2">
-            <div class="row text-center">
-                <div class="col-sm-12">
-                    <ul id="screen" class='list-group'>
-                        
-                    </ul>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="d-flex justify-content-center">
+            <h2>MIZUCHI</h2>
+        </div>
+    </footer>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    <script src="assets/js/index.js"></script>
+        </script>
+
+    <!--Script javascript-->
+    <script src="./assets/js/index.js"></script>
 </body>
 
 </html>
