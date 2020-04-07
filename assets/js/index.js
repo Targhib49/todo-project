@@ -52,6 +52,7 @@ let add = (event) => {
         todos.push(inputTodo);
         save(todos);
         showList();
+        document.getElementById("todo").value = ""
     } else {
         alert("Text can't be empty");
     }
