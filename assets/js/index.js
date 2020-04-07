@@ -1,9 +1,9 @@
 let cek = localStorage.getItem("isLogin");
-let userData = JSON.parse(localStorage.userLogin);
 
 if (cek != "true") {
     window.location.href = `${window.origin}/login.html`;
 }
+let userData = JSON.parse(localStorage.userLogin);
 
 //Elements
 let addButton = document.getElementById("add");
