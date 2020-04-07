@@ -83,14 +83,15 @@ let deleteButton = (temp) => {
 let search = (event) => {
     event.preventDefault();
     let todos = get();
-    let inputSearch = document
-        .getElementById("searchForm")
-        .value.toLowerCase();
-    const filtered = todos.filter((todo) =>
-        todo.toLowerCase().includes(inputSearch)
-    );
-    console.log(filtered);
-
+    let filtered = [];
+    let inputSearch = document.getElementById("searchForm").value.toLowerCase();
+    for (let i=0; i<todos.length;i++){
+        if (inputSearch == todos[i]){
+            console.log();
+            
+            filtered.push(inputSearch);
+        }
+    }
     if (filtered.length > 0) {
         showList(filtered);
     } else alert("Item not found");
