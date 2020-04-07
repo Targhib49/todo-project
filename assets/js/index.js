@@ -35,10 +35,11 @@ let showList = (list = get()) => {
     if (list) {
         screen.innerHTML = "";
         for (let index = 0; index < list.length; index++) {
+            let temp = list[index].replace([/[\s]/g],"")
             screen.innerHTML += `<li id="index" class="d-flex justify-content-between align-items-center bg-light p-1">
             <span>${list[index]}</span>
-            <span> <i <i id="edit-${index}" class="fa fa-pencil btn-sm btn-warning" aria-hidden="true" aria-hidden="true" onclick="editButton(this)"></i>
-            <i id="del-${index}" class="fa fa-trash btn-danger btn-sm" aria-hidden="true" onclick="deleteButton(this)"></i></span></li>`;
+            <span> <i <i id="edit-${temp}" class="fa fa-pencil btn-sm btn-warning" aria-hidden="true" aria-hidden="true" onclick="editButton(this)"></i>
+            <i id="del-${temp}" class="fa fa-trash btn-danger btn-sm" aria-hidden="true" onclick="deleteButton(this)"></i></span></li>`;
         }
     }
 } 
@@ -60,7 +61,14 @@ let add = (event) => {
 
 let editButton = (temp) => {
     let todos = get();
-    const id = temp.id.replace("edit-", "");
+    let element = temp.id.replace("edit-", "");
+    let id = 0;
+    for (let i=0; i<todos.length; i++){
+        let compare = todos[i].replace(/[\s]/g,"")
+        if (element == compare){
+            id = i
+        }
+    }
     const text = prompt(`update ${todos[id]}:`);
 
     if (text) {
@@ -74,7 +82,14 @@ let editButton = (temp) => {
 
 let deleteButton = (temp) => {
     let todos = get();
-    let id = temp.id.replace("del-", "");
+    let element = temp.id.replace("del-", "");
+    let id = 0;
+    for (let i=0; i<todos.length; i++){
+        let compare = todos[i].replace(/[\s]/g,"")
+        if (element == compare){
+            id = i
+        }
+    }
     todos.splice(id, 1);
     save(todos);
     showList();
@@ -92,8 +107,19 @@ let search = (event) => {
     }
     if (filtered.length > 0) {
         showList(filtered);
-    } else alert("Item not found");
+        document.getElementById("searchForm").value = ""
+    } else {
+        alert("Item not found");
+        document.getElementById("searchForm").value = ""
+        showList(todos)
+    }
 };
+
+//Logout
+let logout = () => {
+    localStorage.setItem("isLogin", false)
+    window.location.href = `${window.origin}/login.html`;
+}
 
 //Initialization
 showUser(userData);
@@ -102,6 +128,7 @@ showList();
 //Listeners
 addButton.addEventListener("click", add);
 searchButton.addEventListener("click", search);
+logoutButton.addEventListener('click', logout);
 
 // Menambahkan class checked pada li
 var list = document.querySelector("#screen");
@@ -111,9 +138,4 @@ list.addEventListener("click", function (event) {
     }
 });
 
-let logout = () => {
-    localStorage.setItem("isLogin", false)
-    window.location.href = `${window.origin}/login.html`;
-}
 
-logoutButton.addEventListener('click', logout)
