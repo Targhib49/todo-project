@@ -35,7 +35,7 @@ let showList = (list = get()) => {
     if (list) {
         screen.innerHTML = "";
         for (let index = 0; index < list.length; index++) {
-            let temp = list[index].replace([/[\s]/g],"")
+            let temp = list[index].replace(/[\s]/g,"")
             screen.innerHTML += `<li id="index" class="d-flex justify-content-between align-items-center bg-light p-1">
             <span>${list[index]}</span>
             <span> <i <i id="edit-${temp}" class="fa fa-pencil btn-sm btn-warning" aria-hidden="true" aria-hidden="true" onclick="editButton(this)"></i>
@@ -48,7 +48,7 @@ let showList = (list = get()) => {
 let add = (event) => {
     event.preventDefault();
     let todos = get();
-    let inputTodo = document.getElementById("todo").value;
+    let inputTodo = document.getElementById("todo").value.toLowerCase();
     if (inputTodo) {
         todos.push(inputTodo);
         save(todos);
