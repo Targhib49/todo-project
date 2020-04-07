@@ -1,36 +1,6 @@
-header {
-    color: white;
-    background-color: #e9ecef;
-}
-  
-h1 {
-    background-color: #17a2b8;
-    color: white;
-    margin-bottom: 0px;
-    padding-top: 100px;
-    padding-bottom: 0px;
-}
-  
-footer {
-    background-color: #e9ecef;
-}
-  
-h2 {
-    background-color: #17a2b8;
-    color: white;
-    margin-bottom: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
-  
-.nav-link {
-    color: #17a2b8;
-    background-color: #e9ecef;
-}
-  
 .nav-link:hover {
     color: white;
-    background-color: #17a2b8;
+    background-color:black;
 }
 
 ul li.checked {

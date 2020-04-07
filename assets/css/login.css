@@ -1,0 +1,17 @@
+header {
+    color: white;
+ 
+}
+
+.register1 h1 {
+    text-align: center;
+    font-size: 40px;
+    padding-top: 30px;
+    font-family: monospace;
+}
+
+.body1 {
+    padding: 20px;
+    border: 2px solid black;
+
+}
