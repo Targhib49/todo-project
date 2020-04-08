@@ -7,12 +7,7 @@
 
 Alur program : 
 Login(1) -> sudah terdaftar? -> ya -> index(3) <br>	
-  ^		  |
-  |		  v
-  |	        belum
-  |		  |
-  |		  v
-  ------------register(2)
+  
 
 (1) ada form login dan tombol register saja
 (2) ada form register dan tombol login saja

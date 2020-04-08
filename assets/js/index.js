@@ -38,7 +38,7 @@ let showList = (list = get()) => {
             let temp = list[index].replace(/[\s]/g,"")
             screen.innerHTML += `<li id="index" class="d-flex justify-content-between align-items-center bg-light p-1">
             <span>${list[index]}</span>
-            <span> <i <i id="edit-${temp}" class="fa fa-pencil btn-sm btn-warning" aria-hidden="true" aria-hidden="true" onclick="editButton(this)"></i>
+            <span> <i id="edit-${temp}" class="fa fa-pencil btn-sm btn-warning" aria-hidden="true" aria-hidden="true" onclick="editButton(this)"></i>
             <i id="del-${temp}" class="fa fa-trash btn-danger btn-sm" aria-hidden="true" onclick="deleteButton(this)"></i></span></li>`;
         }
     }
